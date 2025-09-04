@@ -25,8 +25,7 @@ spring:
     bootstrap-servers: ${KAFKA_BROKERS:localhost:9092,localhost:9093}
     consumer:
       group-id: inventory-service-group
-  profiles:
-    active: h2-local
+
 
 # Topic Names
 order:
