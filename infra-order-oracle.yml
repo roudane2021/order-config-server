@@ -1,4 +1,14 @@
 spring:
+  kafka:
+    consumer:
+      group-id: inventory-service-group
+    bootstrap-servers: ${KAFKA_BROKERS:localhost:9092,localhost:9093}
+    topics:
+      order-created: order-created-events
+      order-shipped: order-shipped-events
+      order-updated: order-updated-events
+      order-cancelled: order-cancelled-events
+      inventory-reserved: inventory-reserved-events
   datasource:
     # Replace with actual Oracle connection details
     url: jdbc:oracle:thin:@//${BD_ORACLE_HOST:localhost:1521}/XEPDB1
@@ -16,4 +26,8 @@ spring:
         format_sql: true
   liquibase:
     enabled: true # Enable Liquibase for this profile
-    change-log: classpath:/db/changelog/db.changelog-master.yaml # Path to the master changelog
+    change-log: classpath:/db/changelog/db.changelog-master.yaml
+
+
+server:
+  port: 8787

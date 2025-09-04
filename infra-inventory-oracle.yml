@@ -39,3 +39,6 @@ inventory:
     topic:
       reserved: inventory-reserved-events
       depleted: inventory-depleted-events
+
+server:
+  port: 8888
