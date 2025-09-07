@@ -29,3 +29,9 @@ server:
 logging:
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%t] %X{className}::%X{methodName} - %msg%n"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh

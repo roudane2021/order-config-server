@@ -12,3 +12,9 @@ spring:
     config:
       import-check:
         enabled: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh

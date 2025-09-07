@@ -46,3 +46,9 @@ eureka:
   client:
     serviceUrl:
       defaultZone: ${EUREKA_SERVER_URL:http://localhost:9102/eureka/}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
