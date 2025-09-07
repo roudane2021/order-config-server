@@ -1,0 +1,7 @@
+server:
+  port: 9103
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER_URL:http://localhost:9102/eureka/}
