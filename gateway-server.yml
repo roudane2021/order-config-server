@@ -9,3 +9,12 @@ spring:
           enabled: true
           lower-case-service-id: true
 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER_URL:http://localhost:9102/eureka/}
+
+logging:
+  level:
+    com.netflix.discovery: DEBUG
+    org.springframework.cloud.netflix.eureka: DEBUG
