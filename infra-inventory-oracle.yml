@@ -44,8 +44,7 @@ server:
 
 eureka:
   instance:
-    prefer-ip-address: true
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    prefer-ip-address: false
     hostname: infra-inventory.order-dev.svc.cluster.local
     non-secure-port: 80
   client:
