@@ -35,8 +35,10 @@ server:
 
 eureka:
   instance:
-    prefer-ip-address: false
-    hostname: ${spring.application.name}.order-dev.svc.cluster.local
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    hostname: infra-order.order-dev.svc.cluster.local
+    non-secure-port: 80
   client:
     serviceUrl:
       defaultZone: ${EUREKA_SERVER_URL:http://localhost:9102/eureka/}
