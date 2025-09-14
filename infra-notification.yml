@@ -20,6 +20,9 @@ inventory:
       depleted: inventory-depleted-events
 
 eureka:
+  instance:
+    prefer-ip-address: false
+    hostname: ${spring.application.name}.order-dev.svc.cluster.local
   client:
     serviceUrl:
       defaultZone: ${EUREKA_SERVER_URL:http://localhost:9102/eureka/}
