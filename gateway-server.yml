@@ -35,8 +35,9 @@ eureka:
 
 logging:
   level:
-    com.netflix.discovery: DEBUG
-    org.springframework.cloud.netflix.eureka: DEBUG
+    org.springframework.cloud.gateway: TRACE
+    reactor.netty: DEBUG
+    org.springframework.web.reactive.function.client: TRACE
 
 management:
   endpoints:
