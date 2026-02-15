@@ -37,7 +37,7 @@ eureka:
   instance:
     prefer-ip-address: {ORDER_USE_IP:true}
     hostname: ${ORDER_SERVER_URL:localhost}
-    non-secure-port: ${ORDER_PORT:8888}
+    non-secure-port: ${ORDER_PORT:8787}
   client:
     serviceUrl:
       defaultZone: ${EUREKA_SERVER_URL:http://localhost:9102/eureka/}
