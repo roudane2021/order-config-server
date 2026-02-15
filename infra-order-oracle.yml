@@ -35,9 +35,9 @@ server:
 
 eureka:
   instance:
-    prefer-ip-address: false
-    hostname: infra-order.order-dev.svc.cluster.local
-    non-secure-port: 80
+    prefer-ip-address: {ORDER_USE_IP:true}
+    hostname: ${ORDER_SERVER_URL:localhost}
+    non-secure-port: ${ORDER_PORT:8888}
   client:
     serviceUrl:
       defaultZone: ${EUREKA_SERVER_URL:http://localhost:9102/eureka/}

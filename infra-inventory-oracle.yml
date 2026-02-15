@@ -44,9 +44,9 @@ server:
 
 eureka:
   instance:
-    prefer-ip-address: {ORDER_USE_IP:true}
-    hostname: ${ORDER_SERVER_URL:localhost}
-    non-secure-port: ${ORDER_PORT:8787}
+    prefer-ip-address: {INVENTORY_USE_IP:true}
+    hostname: ${INVENTORY_SERVER_URL:localhost}
+    non-secure-port: ${INVENTORY_PORT:8888}
   client:
     serviceUrl:
       defaultZone: ${EUREKA_SERVER_URL:http://localhost:9102/eureka/}
