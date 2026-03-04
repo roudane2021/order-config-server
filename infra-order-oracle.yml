@@ -9,6 +9,7 @@ spring:
       order-updated: order-updated-events
       order-cancelled: order-cancelled-events
       inventory-reserved: inventory-reserved-events
+      inventory-depleted: inventory-depleted-events
   datasource:
     # Replace with actual Oracle connection details
     url: jdbc:oracle:thin:@//${BD_ORACLE_HOST:localhost:1521}/XEPDB1
