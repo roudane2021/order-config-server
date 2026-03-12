@@ -49,3 +49,9 @@ management:
     web:
       exposure:
         include: refresh
+
+outbox:
+  limit: 50
+  max-retries: 5
+  delay-seconds: 30
+  polling-delay: 30000
