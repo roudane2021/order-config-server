@@ -9,12 +9,14 @@ spring:
       order-updated: order-updated-events
       order-cancelled: order-cancelled-events
       inventory-reserved: inventory-reserved-events
+      inventory-depleted: inventory-depleted-events
   datasource:
     url: jdbc:h2:mem:orderdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
     driverClassName: org.h2.Driver
     username: sa
     password: '' # Empty password
   jpa:
+    open-in-view: true
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: update
@@ -28,3 +30,27 @@ spring:
       path: /h2-console
   liquibase:
     enabled: false # Disable Liquibase for the H2 profile
+
+server:
+  port: 8787
+
+eureka:
+  instance:
+    prefer-ip-address: {ORDER_USE_IP:true}
+    hostname: ${ORDER_SERVER_URL:localhost}
+    non-secure-port: ${ORDER_PORT:8787}
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER_URL:http://localhost:9102/eureka/}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
+
+outbox:
+  limit: 50
+  max-retries: 5
+  delay-seconds: 30
+  polling-delay: 30000

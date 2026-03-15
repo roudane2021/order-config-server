@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:h2:mem:orderdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:h2:mem:inventorydb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
     driverClassName: org.h2.Driver
     username: sa
     password: '' # Empty password
@@ -18,7 +18,9 @@ spring:
       path: /h2-console
   liquibase:
     enabled: false # Disable Liquibase for the H2 profile
+    change-log: classpath:/db/changelog/db.changelog-master.yaml
   kafka:
+    bootstrap-servers: ${KAFKA_BROKERS:localhost:9092,localhost:9093}
     consumer:
       group-id: inventory-service-group
   profiles:
@@ -37,3 +39,26 @@ inventory:
       reserved: inventory-reserved-events
       depleted: inventory-depleted-events
 
+outbox:
+  limit: 50
+  max-retries: 5
+  delay-seconds: 30
+  polling-delay: 30000
+
+server:
+  port: 8888
+
+eureka:
+  instance:
+    prefer-ip-address: {INVENTORY_USE_IP:true}
+    hostname: ${INVENTORY_SERVER_URL:localhost}
+    non-secure-port: ${INVENTORY_PORT:8888}
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER_URL:http://localhost:9102/eureka/}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
