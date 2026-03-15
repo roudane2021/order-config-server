@@ -39,6 +39,13 @@ inventory:
       reserved: inventory-reserved-events
       depleted: inventory-depleted-events
 
+
+outbox:
+  limit: 50
+  max-retries: 5
+  delay-seconds: 30
+  polling-delay: 30000
+
 server:
   port: 8888
 
