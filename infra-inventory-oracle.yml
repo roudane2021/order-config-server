@@ -59,7 +59,11 @@ eureka:
       defaultZone: ${EUREKA_SERVER_URL:http://localhost:9102/eureka/}
 
 management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
   endpoints:
     web:
       exposure:
-        include: refresh
+        include: "*"
